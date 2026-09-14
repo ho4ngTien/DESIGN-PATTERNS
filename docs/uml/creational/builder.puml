@@ -1,0 +1,19 @@
+@startuml
+class UserProfile {
+  - username: String
+  - email: String
+  - displayName: String
+  - bio: String
+  - newsletterSubscribed: boolean
+  + builder(username: String, email: String): Builder
+}
+class Builder {
+  + displayName(value: String): Builder
+  + bio(value: String): Builder
+  + newsletterSubscribed(value: boolean): Builder
+  + build(): UserProfile
+}
+
+UserProfile *-- Builder : construction API
+Builder ..> UserProfile : creates
+@enduml

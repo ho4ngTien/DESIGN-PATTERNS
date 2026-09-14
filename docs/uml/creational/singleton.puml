@@ -1,0 +1,11 @@
+@startuml
+class ApplicationConfiguration {
+  - values: Map<String, String>
+  - ApplicationConfiguration()
+  + getInstance(): ApplicationConfiguration
+  + get(key: String): String
+  + set(key: String, value: String): void
+}
+
+ApplicationConfiguration ..> ApplicationConfiguration : Holder creates one instance
+@enduml

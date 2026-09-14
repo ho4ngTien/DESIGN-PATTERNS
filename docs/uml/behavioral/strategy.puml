@@ -1,0 +1,17 @@
+@startuml
+interface DiscountStrategy {
+  + apply(subtotal: BigDecimal): BigDecimal
+}
+class StudentDiscountStrategy
+class VipDiscountStrategy
+class NoDiscountStrategy
+class CheckoutService {
+  - discountStrategy: DiscountStrategy
+  + totalFor(subtotal: BigDecimal): BigDecimal
+}
+
+DiscountStrategy <|.. StudentDiscountStrategy
+DiscountStrategy <|.. VipDiscountStrategy
+DiscountStrategy <|.. NoDiscountStrategy
+CheckoutService o-- DiscountStrategy : delegates to
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+interface Notification {
+  + send(recipient: String, message: String): String
+}
+class EmailNotification
+class SmsNotification
+class PushNotification
+abstract class NotificationFactory {
+  + createNotification(): Notification
+  + notify(recipient: String, message: String): String
+}
+class EmailNotificationFactory
+class SmsNotificationFactory
+class PushNotificationFactory
+
+Notification <|.. EmailNotification
+Notification <|.. SmsNotification
+Notification <|.. PushNotification
+NotificationFactory <|-- EmailNotificationFactory
+NotificationFactory <|-- SmsNotificationFactory
+NotificationFactory <|-- PushNotificationFactory
+NotificationFactory ..> Notification : creates
+@enduml
