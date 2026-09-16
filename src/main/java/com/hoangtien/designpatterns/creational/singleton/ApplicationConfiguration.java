@@ -4,10 +4,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public final class ApplicationConfiguration {
+
     private final Map<String, String> values = new ConcurrentHashMap<>();
 
     private ApplicationConfiguration() {
-        values.put("application.name", "Design Patterns Playground");
     }
 
     private static class Holder {
